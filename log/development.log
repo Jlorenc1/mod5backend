@@ -1,0 +1,409 @@
+  [1m[35m (915.7ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (1064.5ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (16.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5073945470573576205)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200831021101)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200831021101"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-08-31 02:13:23.468708"], ["updated_at", "2020-08-31 02:13:23.468708"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5073945470573576205)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["password_digest", "$2a$12$Nnjw66k0KkR1OnPiZkBmnO098DxxCJK2f.0cAHwflwPl6K8s.tYS6"], ["created_at", "2020-08-31 02:14:23.365153"], ["updated_at", "2020-08-31 02:14:23.365153"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2020-08-30 19:20:06 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/jlorenc1/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/jlorenc1/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 16.8ms | Allocations: 478)
+Completed 200 OK in 70ms (Views: 42.8ms | ActiveRecord: 0.0ms | Allocations: 2616)
+
+
+Started GET "/" for ::1 at 2020-08-30 19:39:29 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/jlorenc1/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/jlorenc1/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.8ms | Allocations: 315)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 1595)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5073945470573576205)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5073945470573576205)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["password_digest", "$2a$12$E1.h41TgZPUQhyUA9NiEaO.CGeDX93eLT01mSKM9yvDiMWZBGdT1K"], ["created_at", "2020-08-31 02:39:53.079886"], ["updated_at", "2020-08-31 02:39:53.079886"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/auto_login" for ::1 at 2020-08-30 19:45:45 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 255)
+
+
+Started POST "/users" for ::1 at 2020-08-30 19:47:24 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"jlorenc1", "password"=>"[FILTERED]", "user"=>{"username"=>"jlorenc1"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "jlorenc1"], ["password_digest", "$2a$12$ZGnaRlvTaNYkOz.eaHR.7u1CBVZZUUuwEbOqpMpzAkD5072DPBcNy"], ["created_at", "2020-08-31 02:47:24.183403"], ["updated_at", "2020-08-31 02:47:24.183403"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 182ms (Views: 0.4ms | ActiveRecord: 4.0ms | Allocations: 6240)
+
+
+Started POST "/login" for ::1 at 2020-08-30 19:47:34 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"user1", "password"=>"[FILTERED]", "user"=>{"username"=>"user1"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 174ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2688)
+
+
+Started POST "/login" for ::1 at 2020-08-30 19:47:38 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"asdf", "password"=>"[FILTERED]", "user"=>{"username"=>"asdf"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 676)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-30 19:57:58 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-30 19:58:00 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/" for ::1 at 2020-08-30 19:58:02 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/jlorenc1/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/jlorenc1/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.0ms | Allocations: 315)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 1590)
+
+
+Started POST "/login" for ::1 at 2020-08-30 19:58:20 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"asdf", "password"=>"[FILTERED]", "user"=>{"username"=>"asdf"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 744)
+
+
+Started POST "/login" for ::1 at 2020-08-30 19:58:22 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"asdf", "password"=>"[FILTERED]", "user"=>{"username"=>"asdf"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 659)
+
+
+Started POST "/login" for ::1 at 2020-08-30 19:58:23 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"asdf", "password"=>"[FILTERED]", "user"=>{"username"=>"asdf"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 669)
+
+
+Started POST "/login" for ::1 at 2020-08-30 19:58:24 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"asdf", "password"=>"[FILTERED]", "user"=>{"username"=>"asdf"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 660)
+
+
+Started POST "/login" for ::1 at 2020-08-30 19:58:24 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"asdf", "password"=>"[FILTERED]", "user"=>{"username"=>"asdf"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 659)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-30 19:59:03 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started POST "/users" for ::1 at 2020-08-30 19:59:09 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"elsa", "password"=>"[FILTERED]", "user"=>{"username"=>"elsa"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "elsa"], ["password_digest", "$2a$12$E3YI5WnyJ.w4Jy1DhHubou.SD/PGuqAoeUVy1CZNqBTyCjx/RTJFW"], ["created_at", "2020-08-31 02:59:09.883127"], ["updated_at", "2020-08-31 02:59:09.883127"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 168ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2756)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-30 20:02:05 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1077)
+
+
+Started POST "/login" for ::1 at 2020-08-30 20:02:11 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"elsa", "password"=>"[FILTERED]", "user"=>{"username"=>"elsa"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "elsa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 165ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 886)
+
+
+Started POST "/login" for ::1 at 2020-08-30 20:02:12 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"elsa", "password"=>"[FILTERED]", "user"=>{"username"=>"elsa"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "elsa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 172ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 885)
+
+
+Started POST "/login" for ::1 at 2020-08-30 20:02:12 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"elsa", "password"=>"[FILTERED]", "user"=>{"username"=>"elsa"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "elsa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 164ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 885)
+
+
+Started POST "/login" for ::1 at 2020-08-30 20:02:12 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"elsa", "password"=>"[FILTERED]", "user"=>{"username"=>"elsa"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "elsa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 164ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 885)
+
+
+Started POST "/users" for ::1 at 2020-08-30 20:05:06 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"jlo1", "password"=>"[FILTERED]", "user"=>{"username"=>"jlo1"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "jlo1"], ["password_digest", "$2a$12$pPqCl1VgXhebqoiEQ6rH.OMhGDcUd1wJZ0SR58YSUbQjKrQbnpX2m"], ["created_at", "2020-08-31 03:05:06.913003"], ["updated_at", "2020-08-31 03:05:06.913003"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 167ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 2751)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-30 20:05:30 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 959)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:02:20 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 197)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:03:10 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:03:12 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:03:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:03:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:05:54 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:22:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:22:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:22:32 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:22:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:22:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:26:54 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 07:46:42 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 09:38:13 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 148)
+
+
+Started POST "/users" for ::1 at 2020-08-31 09:38:24 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"dfgndfgn", "password"=>"[FILTERED]", "user"=>{"username"=>"dfgndfgn"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "dfgndfgn"], ["password_digest", "$2a$12$MPoAt9QqILsvhDp2XKhK1.nw8DLX8TCEAHIrEo5ndCXqNGnDsvI66"], ["created_at", "2020-08-31 16:38:24.309583"], ["updated_at", "2020-08-31 16:38:24.309583"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 188ms (Views: 0.2ms | ActiveRecord: 6.0ms | Allocations: 6246)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 09:38:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 44ms (Views: 0.5ms | ActiveRecord: 1.7ms | Allocations: 2773)
+
+
+Started POST "/login" for ::1 at 2020-08-31 09:38:33 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"asdfavasdv", "password"=>"[FILTERED]", "user"=>{"username"=>"asdfavasdv"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asdfavasdv"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 788)
+
+
+Started POST "/login" for ::1 at 2020-08-31 09:39:20 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"user1", "password"=>"[FILTERED]", "user"=>{"username"=>"user1"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 170ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 711)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 09:39:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-08-31 10:25:56 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.3.2) lib/active_record/migration.rb:586:in `check_pending!'
+activerecord (6.0.3.2) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
