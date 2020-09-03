@@ -2,7 +2,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
   def change
     create_table :games do |t|
       t.string :user
-      t.string :created_at
+      t.string :started_at
       t.string :score
       t.string :completion_time
       t.string :accuracy

@@ -407,3 +407,4013 @@ puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.5) lib/puma/server.rb:472:in `process_client'
 puma (4.3.5) lib/puma/server.rb:328:in `block in run'
 puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5073945470573576205)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFriendships (20200831171912)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (24.9ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" bigint, "friend_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3733b59b7"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_friendships_on_user_id" ON "friendships"  ("user_id")[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_friendships_on_friend_id" ON "friendships"  ("friend_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200831171912"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGames (20200831202139)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5073945470573576205)[0m
+  [1m[35m (1036.6ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (929.7ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (21.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5073945470573576205)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200831021101)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200831021101"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFriendships (20200831171912)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" bigint, "friend_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e3733b59b7"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE  INDEX  "index_friendships_on_user_id" ON "friendships"  ("user_id")[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE  INDEX  "index_friendships_on_friend_id" ON "friendships"  ("friend_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200831171912"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGames (20200831202139)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5073945470573576205)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5073945470573576205)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGames (20200831202139)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.8ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "user" character varying, "started_at" character varying, "score" character varying, "completion_time" character varying, "accuracy" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200831202139"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-01 13:27:00.117898"], ["updated_at", "2020-09-01 13:27:00.117898"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5073945470573576205)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "user1"], ["password_digest", "$2a$12$.10fZdMAFl7/m/1X8TosJeV.aJ6CweCTyeOTE1ALN1/h7dYUkX.Xe"], ["created_at", "2020-09-01 13:27:07.662440"], ["updated_at", "2020-09-01 13:27:07.662440"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/auto_login" for ::1 at 2020-09-01 06:43:34 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 197)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 06:48:00 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 155)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 06:48:21 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 06:48:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 06:48:53 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 06:49:01 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 06:49:26 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 06:49:50 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:33:29 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 156)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:34:00 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:34:01 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:34:24 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:34:27 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:34:36 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:34:45 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:35:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:35:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:38:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:39:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:41:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:41:10 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:41:21 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:41:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:42:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:42:57 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:43:08 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:44:18 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:44:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:45:06 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:46:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:47:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:47:53 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:48:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:48:58 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:49:14 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:49:21 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:49:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:49:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:49:41 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:49:52 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:50:03 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:50:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:50:30 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:50:33 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:51:01 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:51:05 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:51:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:51:36 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:54:21 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:54:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:54:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:55:42 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:55:46 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:55:50 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:56:08 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:56:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:56:14 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 133)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:56:36 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:56:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:57:30 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:58:07 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:58:13 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:58:16 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 08:58:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:00:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:00:42 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:00:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:00:54 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:02:00 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:02:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:03:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:04:44 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:05:00 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:05:13 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:05:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:15:44 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:15:44 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:16:05 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:16:10 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:16:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:16:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:19:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:19:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:20:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:20:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:20:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:20:42 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:20:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:20:49 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:20:54 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:20:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:21:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:25:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:25:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:25:42 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:25:54 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:28:44 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:28:59 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started POST "/login" for ::1 at 2020-09-01 09:29:12 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"asdf", "password"=>"[FILTERED]", "user"=>{"username"=>"asdf"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 2576)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:35:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 156)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:35:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:35:22 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:37:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:38:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:38:52 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:39:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:41:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:41:14 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:41:15 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started POST "/users" for ::1 at 2020-09-01 09:41:37 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"asdf", "password"=>"[FILTERED]", "user"=>{"username"=>"asdf"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "asdf"], ["password_digest", "$2a$12$AhegNiDxDVFCD90AgqhvEe899djA3VKGaSKp6TIhSaQqBsC5/qsTy"], ["created_at", "2020-09-01 16:41:37.955213"], ["updated_at", "2020-09-01 16:41:37.955213"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 192ms (Views: 0.4ms | ActiveRecord: 6.6ms | Allocations: 6351)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:42:04 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 3.2ms | Allocations: 1166)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:42:06 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:42:16 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:50:48 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:51:38 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started POST "/login" for ::1 at 2020-09-01 09:52:43 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"asdf", "password"=>"[FILTERED]", "user"=>{"username"=>"asdf"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 169ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 1084)
+
+
+Started POST "/users" for ::1 at 2020-09-01 09:52:59 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "password"=>"[FILTERED]", "user"=>{"username"=>"123"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "123"], ["password_digest", "$2a$12$.FaeIcskPw2JbMsUC2xeGORV89SUyVN4wfWZWbDqt53/2nLTtWeXu"], ["created_at", "2020-09-01 16:53:00.037235"], ["updated_at", "2020-09-01 16:53:00.037235"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 178ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2836)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:54:06 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 963)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:55:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 09:56:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started POST "/login" for ::1 at 2020-09-01 09:58:19 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"user1", "password"=>"[FILTERED]", "user"=>{"username"=>"user1"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "user1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 174ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 700)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:00:01 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:00:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:00:49 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:00:58 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:01:53 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:03:18 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:03:22 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:03:27 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:03:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:04:01 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:04:03 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:04:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:05:19 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started POST "/login" for ::1 at 2020-09-01 10:06:55 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>""}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 659)
+
+
+Started POST "/login" for ::1 at 2020-09-01 10:06:58 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"Elsa", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Elsa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 659)
+
+
+Started POST "/login" for ::1 at 2020-09-01 10:10:49 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"asdfasdgasb", "password"=>"[FILTERED]", "user"=>{"username"=>"asdfasdgasb"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asdfasdgasb"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 659)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:11:23 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 133)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:12:16 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:12:36 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:18:27 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:18:36 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:22:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:22:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:24:16 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:24:24 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:24:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:24:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:26:19 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:26:38 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:26:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:31:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:32:47 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 11.0ms | Allocations: 155)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:42:29 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:42:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:42:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:43:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:43:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:43:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:43:14 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:43:49 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:43:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:46:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 10:59:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 131)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:35:44 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 155)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:35:52 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:35:59 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:37:48 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:37:53 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:38:10 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:42:52 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:43:15 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:43:19 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:43:37 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:44:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:44:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:44:45 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 11:45:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:38:12 -0700
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 197)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:38:22 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:38:58 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:39:23 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:40:57 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:41:06 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:46:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:46:19 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:46:23 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:46:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:46:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:46:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:46:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:47:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:47:46 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:47:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:47:58 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:48:00 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:48:03 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:48:04 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:48:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:48:27 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:48:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:49:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:49:45 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:49:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:49:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 13:49:58 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:00:33 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 156)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:00:46 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:00:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:10:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:16:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:16:53 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:16:58 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:20:36 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:22:58 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 197)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:23:37 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:29:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:29:46 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:29:53 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:29:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:29:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:30:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:31:46 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:31:47 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:31:48 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:32:00 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:32:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:32:06 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:32:08 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:32:13 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:32:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:32:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:32:23 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:32:27 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:33:10 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:33:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:33:12 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:33:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:33:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:34:32 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:34:44 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:35:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:35:37 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:35:47 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:35:49 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:36:27 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:36:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:38:29 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:38:57 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:39:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:39:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:40:44 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:41:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:46:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:47:23 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:52:45 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 9.1ms | Allocations: 156)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:53:46 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:54:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:55:24 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 16:55:26 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:18:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:18:32 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:18:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:19:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:19:18 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:19:22 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:19:33 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:19:33 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:19:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:19:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:19:54 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:19:54 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:29:47 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:54:38 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 156)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 17:54:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:07:58 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 155)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:08:07 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:08:13 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:23:15 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:24:10 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:25:57 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:26:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:26:24 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:26:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:28:18 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:28:21 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:28:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:28:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:29:19 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:29:22 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:29:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:29:32 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:29:47 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:29:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:30:13 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:30:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:30:33 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:30:38 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:50:21 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 131)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:50:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:50:30 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:50:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:50:41 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:50:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:50:45 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:50:52 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:50:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:51:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:51:05 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:51:10 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:51:19 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:51:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:51:23 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:51:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:53:12 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:53:18 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 19:54:33 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:18:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 155)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:18:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:20:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:20:19 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:20:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:20:38 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:21:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:21:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:21:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:22:05 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:23:42 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 131)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:23:49 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:23:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:24:08 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:24:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:24:12 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:24:14 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:24:16 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:24:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:24:22 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:24:24 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:24:26 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:24:50 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:25:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:25:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:25:29 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:25:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:25:33 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:25:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:25:38 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:25:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:27:10 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:27:24 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:27:26 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:28:08 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:28:16 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:30:05 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:30:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:30:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:30:41 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:31:46 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:31:53 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:51:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:51:41 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:53:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:53:13 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:53:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:53:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:53:26 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:53:32 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:53:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:53:59 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:54:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:54:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:54:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:55:24 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 20:57:21 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:01:37 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:02:06 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:02:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:02:47 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:02:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:03:07 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:03:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:03:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:03:46 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:03:48 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:04:33 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:07:33 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 133)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:08:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:08:30 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:08:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:08:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:09:17 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:09:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:09:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:09:41 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:09:45 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:09:50 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:09:54 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:10:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:10:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:12:32 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:12:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:19:15 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 155)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:19:18 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:20:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:21:03 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:21:18 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:26:57 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:27:04 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:27:53 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:27:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:28:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:28:05 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:28:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:28:19 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:28:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:28:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:28:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 131)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:28:48 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:28:50 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:32:04 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:33:23 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:33:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:33:27 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:33:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:47:06 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:47:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:47:12 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:47:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:48:06 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:48:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:48:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:48:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:49:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:49:25 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 21:49:26 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 22:14:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 22:14:08 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 22:14:10 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-01 22:45:08 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 156)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:07:53 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 196)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:07:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:08:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:08:53 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:09:14 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:11:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:13:22 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:13:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:13:41 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:15:45 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:16:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:22:16 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:26:04 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:28:45 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:28:46 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:28:57 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:29:22 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:35:01 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:35:26 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:37:23 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:42:24 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:42:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:44:03 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:45:15 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:49:27 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:50:23 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:51:05 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:52:30 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:52:32 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:52:44 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:54:19 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 10:58:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:06:37 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 159)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:06:39 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:06:45 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:06:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:06:54 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:06:59 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:07:12 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:07:14 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:07:15 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:07:28 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:07:30 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:07:32 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:08:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:08:24 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:11:03 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:11:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:12:05 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:12:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:13:01 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:14:52 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:17:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:17:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:19:01 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:19:02 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:20:51 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:21:18 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:21:30 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:21:45 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:21:47 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:21:57 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:22:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:22:35 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:22:40 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:22:43 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:22:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:23:08 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:23:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:23:12 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:23:18 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:26:53 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:27:01 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:27:48 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 131)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:31:19 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:33:05 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:33:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:36:11 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:36:14 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 11:36:23 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 13:07:38 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 155)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 13:10:41 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 13:17:56 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 13:18:09 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 13:48:20 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 131)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 13:50:38 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:35:16 -0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 197)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:36:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:49:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 155)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:51:24 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:51:27 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:51:34 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:51:48 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:51:50 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started POST "/login" for ::1 at 2020-09-02 15:52:22 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"Elsa", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Elsa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 2548)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:56:50 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:56:52 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 15:56:55 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started POST "/users" for ::1 at 2020-09-02 15:57:37 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"hjkl", "password"=>"[FILTERED]", "user"=>{"username"=>"hjkl"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "hjkl"], ["password_digest", "$2a$12$Um11SgiqsVOofVGsm8O0.e2MfhptP8e21YxvVhVG5Q/W2CmfLN7Hi"], ["created_at", "2020-09-02 22:57:37.669431"], ["updated_at", "2020-09-02 22:57:37.669431"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 181ms (Views: 0.2ms | ActiveRecord: 5.9ms | Allocations: 6307)
+
+
+Started POST "/login" for ::1 at 2020-09-02 15:58:01 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"hjkl", "password"=>"[FILTERED]", "user"=>{"username"=>"hjkl"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hjkl"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 165ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 914)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 16:00:54 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 1086)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 16:00:58 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 130)
+
+
+Started POST "/users" for ::1 at 2020-09-02 16:03:27 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"Elsa123", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa123"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Elsa123"], ["password_digest", "$2a$12$qpITTiHo2FE4yZzg31n..eP2g26B8qTt5pIRUDyxBkGvCHYdYoaFK"], ["created_at", "2020-09-02 23:03:27.454076"], ["updated_at", "2020-09-02 23:03:27.454076"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 191ms (Views: 0.2ms | ActiveRecord: 10.9ms | Allocations: 5963)
+
+
+Started POST "/login" for ::1 at 2020-09-02 16:03:50 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"Elsa123", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa123"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Elsa123"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 171ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1016)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 16:04:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 1073)
+
+
+Started POST "/login" for ::1 at 2020-09-02 16:05:49 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"Elsa123", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa123"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Elsa123"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 178ms (Views: 0.2ms | ActiveRecord: 3.6ms | Allocations: 3968)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 16:05:57 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 1196)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 17:52:59 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 3402)
+
+
+Started POST "/login" for ::1 at 2020-09-02 17:53:26 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"Elsa123", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa123"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Elsa123"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 173ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 889)
+
+
+Started POST "/login" for ::1 at 2020-09-02 17:53:28 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"Elsa123", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa123"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Elsa123"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 176ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 885)
+
+
+Started POST "/login" for ::1 at 2020-09-02 17:53:29 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"Elsa123", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa123"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Elsa123"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 171ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 896)
+
+
+Started POST "/login" for ::1 at 2020-09-02 17:53:29 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"Elsa123", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa123"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Elsa123"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 176ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 885)
+
+
+Started POST "/login" for ::1 at 2020-09-02 17:53:29 -0700
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"Elsa123", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa123"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Elsa123"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16:in `login'
+Completed 200 OK in 177ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 886)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 17:53:48 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 19.2ms | Allocations: 4180)
+
+
+Started POST "/users" for ::1 at 2020-09-02 17:53:55 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"Elsa123", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa123"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Elsa123"], ["password_digest", "$2a$12$6i/lj3J81C7FWGD.xhYiBOyN540n5af7bFIcIAyRSKZHePOpOgLEu"], ["created_at", "2020-09-03 00:53:56.067371"], ["updated_at", "2020-09-03 00:53:56.067371"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 181ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 2971)
+
+
+Started POST "/users" for ::1 at 2020-09-02 17:53:56 -0700
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"Elsa123", "password"=>"[FILTERED]", "user"=>{"username"=>"Elsa123"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Elsa123"], ["password_digest", "$2a$12$IAcS7Brj0rIt7TplKE3mKuCW4dRF0tjVhTgUobIrjQZA4EBNGg5tK"], ["created_at", "2020-09-03 00:53:56.945471"], ["updated_at", "2020-09-03 00:53:56.945471"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 179ms (Views: 0.4ms | ActiveRecord: 2.4ms | Allocations: 2828)
+
+
+Started GET "/auto_login" for ::1 at 2020-09-02 17:54:31 -0700
+Processing by UsersController#auto_login as JSON
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `logged_in_user'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1066)
+
+
