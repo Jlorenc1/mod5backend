@@ -1,11 +1,9 @@
 class CreateGames < ActiveRecord::Migration[6.0]
   def change
     create_table :games do |t|
-      t.string :user
-      t.string :started_at
-      t.string :score
-      t.string :completion_time
-      t.string :accuracy
+      t.belongs_to :user, foreign_key: true
+      t.integer :score
+      t.integer :completion_time
 
       t.timestamps
     end

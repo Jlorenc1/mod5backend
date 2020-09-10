@@ -16,22 +16,19 @@ ActiveRecord::Schema.define(version: 2020_08_31_202139) do
   enable_extension "plpgsql"
 
   create_table "friendships", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "friend_id"
+    t.integer "followed_id"
+    t.integer "follower_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["friend_id"], name: "index_friendships_on_friend_id"
-    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "games", force: :cascade do |t|
-    t.string "user"
-    t.string "started_at"
-    t.string "score"
-    t.string "completion_time"
-    t.string "accuracy"
+    t.bigint "user_id"
+    t.integer "score"
+    t.integer "completion_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,5 +38,5 @@ ActiveRecord::Schema.define(version: 2020_08_31_202139) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "friendships", "users"
+  add_foreign_key "games", "users"
 end
